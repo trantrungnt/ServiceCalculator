@@ -26,8 +26,9 @@ public class ServiceCalculator extends IntentService {
         Bundle bundle = new Bundle();
         bundle.putInt("sum", inputA + inputB);
 
-//        intentResult.setAction("FILTER_SUM");
-//        sendBroadcast(intentResult);
+        intentResult.putExtra("RESULT_SUM", bundle);
+        intentResult.setAction("FILTER_SUM");
+        sendBroadcast(intentResult);
 
     }
 

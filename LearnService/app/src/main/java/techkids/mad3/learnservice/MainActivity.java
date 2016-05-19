@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Bundle bundle = new Bundle();
             bundle.putInt("inputA", Integer.parseInt(inputA.getText().toString()));
             bundle.putInt("inputB", Integer.parseInt(inputB.getText().toString()));
+            bundle.putString("character", "+");
             intent.putExtra("inputData", bundle);
             startService(intent);
         }

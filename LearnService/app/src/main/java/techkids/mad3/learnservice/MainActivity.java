@@ -15,11 +15,12 @@ import org.w3c.dom.Text;
 
 //Bound: binder, Messager, AIPL
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button btnPlus;
+    private Button btnPlus, btnSubtraction, btnMultiplication, btnDivision;
     private EditText inputA, inputB;
     private TextView tvResultC;
     private Intent intent;
     private Bundle bundle;
+    private int result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onReceive(Context context, Intent intent) {
                 //lay du lieu o day de day vao textResult
-                Bundle bundle = intent.getBundleExtra("RESULT_SUM");
-                int result = bundle.getInt("sum");
+                bundle = intent.getBundleExtra("RESULT_CALCULATOR");
+                String character = bundle.getString("character");
+
+                switch (character) {
+                    case "+":
+                        result = bundle.getInt("sum");
+                    break;
+                    case "-":
+                        result = bundle.getInt("subtraction");
+                        break;
+                }
                 tvResultC.setText(String.valueOf(result));
             }
         };
@@ -51,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvResultC = (TextView) this.findViewById(R.id.tvDisplayResultC);
         btnPlus = (Button) this.findViewById(R.id.btnPlus);
         btnPlus.setOnClickListener(this);
+        btnSubtraction = (Button) this.findViewById(R.id.btnSubtraction);
+        btnSubtraction.setOnClickListener(this);
     }
 
     @Override
@@ -69,11 +81,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 bundle.putInt("inputA", numberA);
                 bundle.putInt("inputB", numberB);
                 bundle.putString("character", "+");
-                intent.putExtra("inputData", bundle);
-                startService(intent);
+                break;
+
+            case R.id.btnSubtraction:
+                bundle.putInt("inputA", numberA);
+                bundle.putInt("inputB", numberB);
+                bundle.putString("character", "-");
                 break;
         }
 
+        intent.putExtra("inputData", bundle);
+        startService(intent);
     }
 
 }

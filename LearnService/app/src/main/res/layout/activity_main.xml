@@ -66,6 +66,37 @@
         android:text="+"
         android:layout_below="@id/tvResult"
         android:layout_marginTop="30dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <Button
+        android:id="@+id/btnSubtraction"
+        android:text="-"
+        android:layout_toRightOf="@id/btnPlus"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tvResult"
+        android:layout_marginTop="30dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <Button
+        android:id="@+id/btnMultiplication"
+        android:text="*"
+        android:layout_toRightOf="@id/btnSubtraction"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tvResult"
+        android:layout_marginTop="30dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <Button
+        android:id="@+id/btnDivision"
+        android:text="-"
+        android:layout_toRightOf="@id/btnMultiplication"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tvResult"
+        android:layout_marginTop="30dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
 </RelativeLayout>

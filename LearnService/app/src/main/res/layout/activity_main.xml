@@ -12,6 +12,7 @@
     <TextView
         android:id="@+id/tvInputA"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="a:" />
@@ -19,12 +20,14 @@
     <EditText
         android:id="@+id/editTextInputA"
         android:layout_toRightOf="@id/tvInputA"
+        android:inputType="number"
         android:layout_width="300dp"
         android:layout_height="50dp" />
 
     <TextView
         android:id="@+id/tvInputB"
         android:layout_below="@id/tvInputA"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +36,7 @@
     <EditText
         android:id="@+id/editTextInputB"
         android:layout_marginTop="20dp"
+        android:inputType="number"
         android:layout_below="@id/tvInputA"
         android:layout_toRightOf="@id/tvInputB"
         android:layout_width="300dp"
@@ -40,6 +44,7 @@
 
     <TextView
         android:id="@+id/tvResult"
+        android:layout_marginLeft="10dp"
         android:layout_below="@id/tvInputB"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"

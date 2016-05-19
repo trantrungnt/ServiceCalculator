@@ -36,6 +36,4 @@ public class ServiceCalculator extends IntentService {
     {
         super("ServiceCalculator");
     }
-
-
 }

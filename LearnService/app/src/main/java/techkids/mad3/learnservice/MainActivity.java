@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnPlus;
     private EditText inputA, inputB;
     private TextView tvResultC;
+    private Intent intent;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tvResultC.setText(String.valueOf(result));
             }
         };
-        registerReceiver(broadcastReceiver, new IntentFilter("FILTER_SUM"));
+        registerReceiver(broadcastReceiver, new IntentFilter("FILTER_CALCULATOR"));
     }
 
     private void initComponent()
@@ -54,16 +56,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int id = v.getId();
+        int numberA, numberB;
+        numberA = Integer.parseInt(inputA.getText().toString());
+        numberB = Integer.parseInt(inputB.getText().toString());
 
-        if (id==R.id.btnPlus)
+        intent = new Intent(MainActivity.this, ServiceCalculator.class);
+        bundle = new Bundle();
+
+        switch (id)
         {
-            Intent intent = new Intent(MainActivity.this, ServiceCalculator.class);
-            Bundle bundle = new Bundle();
-            bundle.putInt("inputA", Integer.parseInt(inputA.getText().toString()));
-            bundle.putInt("inputB", Integer.parseInt(inputB.getText().toString()));
-            bundle.putString("character", "+");
-            intent.putExtra("inputData", bundle);
-            startService(intent);
+            case R.id.btnPlus:
+                bundle.putInt("inputA", numberA);
+                bundle.putInt("inputB", numberB);
+                bundle.putString("character", "+");
+                intent.putExtra("inputData", bundle);
+                startService(intent);
+                break;
         }
+
     }
+
 }

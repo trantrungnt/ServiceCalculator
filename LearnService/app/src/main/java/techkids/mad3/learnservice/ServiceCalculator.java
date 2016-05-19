@@ -35,11 +35,18 @@ public class ServiceCalculator extends IntentService {
                 bundle.putInt("sum", inputA + inputB);
 
                 intentResult.putExtra("RESULT_SUM", bundle);
-                intentResult.setAction("FILTER_SUM");
-                sendBroadcast(intentResult);
+                break;
+            case "-":
+                intentResult = new Intent();
+                bundle = new Bundle();
+                bundle.putInt("subtraction", inputA - inputB);
 
+                intentResult.putExtra("RESULT_SUBTRACTION", bundle);
                 break;
         }
+
+        intentResult.setAction("FILTER_CALCULATOR");
+        sendBroadcast(intentResult);
     }
 
     public ServiceCalculator()

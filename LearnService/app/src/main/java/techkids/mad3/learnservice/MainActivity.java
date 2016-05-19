@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onRsume() {
+    protected void onResume() {
         super.onResume();
-        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                //lay du lieu o day de day vao textResult
-            }
-        };
-        registerReceiver(broadcastReceiver, new IntentFilter("FilterSum"));
+//        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//                //lay du lieu o day de day vao textResult
+//            }
+//        };
+//        registerReceiver(broadcastReceiver, new IntentFilter("FILTER_SUM"));
     }
 
     private void initComponent()
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Bundle bundle = new Bundle();
             bundle.putInt("inputA", Integer.parseInt(inputA.getText().toString()));
             bundle.putInt("inputB", Integer.parseInt(inputB.getText().toString()));
+            intent.putExtra("inputData", bundle);
             startService(intent);
         }
     }

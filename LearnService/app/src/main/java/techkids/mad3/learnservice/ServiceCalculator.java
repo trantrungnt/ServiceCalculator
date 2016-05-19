@@ -15,8 +15,9 @@ import android.util.Log;
 public class ServiceCalculator extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
-        int inputA = intent.getExtras().getInt("inputA");
-        int inputB = intent.getExtras().getInt("inputB");
+        Bundle bundleGetData = intent.getBundleExtra("inputData");
+        int inputA = bundleGetData.getInt("inputA");
+        int inputB = bundleGetData.getInt("inputB");
 
         Log.d("So a", String.valueOf(inputA));
         Log.d("So b", String.valueOf(inputB));
@@ -24,8 +25,9 @@ public class ServiceCalculator extends IntentService {
         Intent intentResult = new Intent();
         Bundle bundle = new Bundle();
         bundle.putInt("sum", inputA + inputB);
-        intentResult.setAction("FilterSum");
-        sendBroadcast(intentResult);
+
+//        intentResult.setAction("FILTER_SUM");
+//        sendBroadcast(intentResult);
 
     }
 

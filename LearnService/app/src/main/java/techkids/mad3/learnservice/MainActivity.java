@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvResultC;
     private Intent intent;
     private Bundle bundle;
-    private float result;
+    private double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +44,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 switch (character) {
                     case "+":
-                        result = bundle.getFloat("sum");
+                        result = bundle.getDouble("sum");
                     break;
                     case "-":
-                        result = bundle.getFloat("subtraction");
+                        result = bundle.getDouble("subtraction");
                         break;
                     case "*":
-                        result = bundle.getFloat("multiplication");
+                        result = bundle.getDouble("multiplication");
                         break;
                     case "/":
-                        result = bundle.getFloat("division");
+                        result = bundle.getDouble("division");
                         break;
                 }
 

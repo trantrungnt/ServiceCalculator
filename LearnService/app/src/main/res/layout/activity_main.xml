@@ -97,7 +97,7 @@
 
     <Button
         android:id="@+id/btnDivision"
-        android:text="-"
+        android:text="/"
         android:layout_toRightOf="@id/btnMultiplication"
         android:layout_marginLeft="10dp"
         android:layout_below="@id/tvResult"

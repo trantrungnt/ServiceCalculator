@@ -15,7 +15,6 @@ import android.util.Log;
 public class ServiceCalculator extends IntentService {
     private Intent intentResult;
     private Bundle bundle;
-    private float resultDivision;;
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -34,20 +33,19 @@ public class ServiceCalculator extends IntentService {
         switch (character)
         {
             case "+":
-                bundle.putFloat("sum", inputA + inputB);
+                bundle.putDouble("sum", inputA + inputB);
                 bundle.putString("character", "+");
                 break;
             case "-":
-                bundle.putFloat("subtraction", inputA - inputB);
+                bundle.putDouble("subtraction", inputA - inputB);
                 bundle.putString("character", "-");
                 break;
             case "*":
-                bundle.putFloat("multiplication", inputA * inputB);
+                bundle.putDouble("multiplication", inputA * inputB);
                 bundle.putString("character", "*");
                 break;
             case "/":
-                resultDivision = inputA / inputB;
-                bundle.putFloat("division", resultDivision);
+                bundle.putDouble("division", Math.floor(inputA / inputB));
                 bundle.putString("character", "/");
                 break;
         }

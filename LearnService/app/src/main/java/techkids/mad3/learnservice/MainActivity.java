@@ -47,10 +47,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case "-":
                         result = bundle.getInt("subtraction");
                         break;
+                    case "*":
+                        result = bundle.getInt("multiplication");
+                        break;
                 }
+
                 tvResultC.setText(String.valueOf(result));
             }
         };
+
         registerReceiver(broadcastReceiver, new IntentFilter("FILTER_CALCULATOR"));
     }
 
@@ -63,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPlus.setOnClickListener(this);
         btnSubtraction = (Button) this.findViewById(R.id.btnSubtraction);
         btnSubtraction.setOnClickListener(this);
+        btnMultiplication = (Button) this.findViewById(R.id.btnMultiplication);
+        btnMultiplication.setOnClickListener(this);
+        btnDivision = (Button) this.findViewById(R.id.btnDivision);
     }
 
     @Override
@@ -78,18 +86,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id)
         {
             case R.id.btnPlus:
-                bundle.putInt("inputA", numberA);
-                bundle.putInt("inputB", numberB);
                 bundle.putString("character", "+");
                 break;
 
             case R.id.btnSubtraction:
-                bundle.putInt("inputA", numberA);
-                bundle.putInt("inputB", numberB);
                 bundle.putString("character", "-");
+                break;
+            case R.id.btnMultiplication:
+                bundle.putString("character", "*");
                 break;
         }
 
+        bundle.putInt("inputA", numberA);
+        bundle.putInt("inputB", numberB);
         intent.putExtra("inputData", bundle);
         startService(intent);
     }

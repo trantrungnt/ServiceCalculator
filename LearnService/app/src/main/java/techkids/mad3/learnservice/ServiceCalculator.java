@@ -40,6 +40,10 @@ public class ServiceCalculator extends IntentService {
                 bundle.putInt("subtraction", inputA - inputB);
                 bundle.putString("character", "-");
                 break;
+            case "*":
+                bundle.putInt("multiplication", inputA * inputB);
+                bundle.putString("character", "*");
+                break;
         }
 
         intentResult.putExtra("RESULT_CALCULATOR", bundle);

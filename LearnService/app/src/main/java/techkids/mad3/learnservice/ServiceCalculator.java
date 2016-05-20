@@ -33,16 +33,20 @@ public class ServiceCalculator extends IntentService {
         switch (character)
         {
             case "+":
-                bundle.putInt("sum", inputA + inputB);
+                bundle.putFloat("sum", inputA + inputB);
                 bundle.putString("character", "+");
                 break;
             case "-":
-                bundle.putInt("subtraction", inputA - inputB);
+                bundle.putFloat("subtraction", inputA - inputB);
                 bundle.putString("character", "-");
                 break;
             case "*":
-                bundle.putInt("multiplication", inputA * inputB);
+                bundle.putFloat("multiplication", inputA * inputB);
                 bundle.putString("character", "*");
+                break;
+            case "/":
+                bundle.putFloat("division", inputA / inputB);
+                bundle.putString("character", "/");
                 break;
         }
 

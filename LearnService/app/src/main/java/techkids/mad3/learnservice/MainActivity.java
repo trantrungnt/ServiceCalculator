@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvResultC;
     private Intent intent;
     private Bundle bundle;
-    private int result;
+    private float result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +42,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 switch (character) {
                     case "+":
-                        result = bundle.getInt("sum");
+                        result = bundle.getFloat("sum");
                     break;
                     case "-":
-                        result = bundle.getInt("subtraction");
+                        result = bundle.getFloat("subtraction");
                         break;
                     case "*":
-                        result = bundle.getInt("multiplication");
+                        result = bundle.getFloat("multiplication");
+                        break;
+                    case "/":
+                        result = bundle.getFloat("division");
                         break;
                 }
 
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMultiplication = (Button) this.findViewById(R.id.btnMultiplication);
         btnMultiplication.setOnClickListener(this);
         btnDivision = (Button) this.findViewById(R.id.btnDivision);
+        btnDivision.setOnClickListener(this);
     }
 
     @Override
@@ -92,8 +96,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnSubtraction:
                 bundle.putString("character", "-");
                 break;
+
             case R.id.btnMultiplication:
                 bundle.putString("character", "*");
+                break;
+
+            case R.id.btnDivision:
+                bundle.putString("character", "/");
                 break;
         }
 

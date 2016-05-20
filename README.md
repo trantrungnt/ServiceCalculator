@@ -8,7 +8,7 @@
 ![Lý thuyết về Service](http://i477.photobucket.com/albums/rr132/trungepu/13223525_1004821056276841_1097650210_o_zps94iiyfth.jpg)
 
 ##Demo Chương trình
-+ [Dmo tính Cộng, Trừ, Nhân, Chia sử dụng Intent Service](https://youtu.be/DxaFsuAiVTo)
++ [Demo tính Cộng, Trừ, Nhân, Chia sử dụng Intent Service](https://youtu.be/DxaFsuAiVTo)
 
 ##Chú ý khi code
 + Ta có thể định nghĩa 1 Service tính toán ngầm các chức năng: Cộng trừ, Nhân, Chia. Sau đó, Service sẽ trả lại kết quả từng phép tính và gửi vào Intent + Bundle. Giao diện sẽ nhận kết quả vừa tính toán được và hiển thị lên màn hình.

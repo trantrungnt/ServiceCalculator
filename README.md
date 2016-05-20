@@ -41,3 +41,7 @@ public class ServiceCalculator extends IntentService {
 ##Môi trường phát triển
 + Bộ công cụ Android Studio 2.1
 + Máy ảo Genymotion dùng api thấp nhất api 17 - max api 23
+
+##Tham khảo
++ [Use Toast in Android](http://www.mkyong.com/android/android-toast-example/)
+

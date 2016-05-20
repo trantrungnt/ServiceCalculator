@@ -15,6 +15,7 @@ import android.util.Log;
 public class ServiceCalculator extends IntentService {
     private Intent intentResult;
     private Bundle bundle;
+    private float resultDivision;;
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -45,7 +46,8 @@ public class ServiceCalculator extends IntentService {
                 bundle.putString("character", "*");
                 break;
             case "/":
-                bundle.putFloat("division", inputA / inputB);
+                resultDivision = inputA / inputB;
+                bundle.putFloat("division", resultDivision);
                 bundle.putString("character", "/");
                 break;
         }

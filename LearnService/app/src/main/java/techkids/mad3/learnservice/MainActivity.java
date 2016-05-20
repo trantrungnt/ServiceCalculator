@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -80,9 +82,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int id = v.getId();
+        String strInputA, strInputB;
         int numberA, numberB;
-        numberA = Integer.parseInt(inputA.getText().toString());
-        numberB = Integer.parseInt(inputB.getText().toString());
+
+        strInputA = inputA.getText().toString();
+        strInputB = inputB.getText().toString();
 
         intent = new Intent(MainActivity.this, ServiceCalculator.class);
         bundle = new Bundle();
@@ -106,10 +110,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-        bundle.putInt("inputA", numberA);
-        bundle.putInt("inputB", numberB);
-        intent.putExtra("inputData", bundle);
-        startService(intent);
+        if(!TextUtils.isEmpty(strInputA) && !TextUtils.isEmpty(strInputB))
+        {
+            numberA = Integer.parseInt(strInputA);
+            numberB = Integer.parseInt(strInputB);
+            bundle.putInt("inputA", numberA);
+            bundle.putInt("inputB", numberB);
+            intent.putExtra("inputData", bundle);
+            startService(intent);
+        } else
+        {
+            Toast.makeText(getApplicationContext(), "You need to type 2 numbers", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

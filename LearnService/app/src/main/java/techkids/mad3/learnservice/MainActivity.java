@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.renderscript.Double2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         String strInputA, strInputB;
-        int numberA, numberB;
+        double numberA, numberB;
 
         strInputA = inputA.getText().toString();
         strInputB = inputB.getText().toString();
@@ -112,10 +113,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(!TextUtils.isEmpty(strInputA) && !TextUtils.isEmpty(strInputB))
         {
-            numberA = Integer.parseInt(strInputA);
-            numberB = Integer.parseInt(strInputB);
-            bundle.putInt("inputA", numberA);
-            bundle.putInt("inputB", numberB);
+            numberA = Double.parseDouble(strInputA);
+            numberB = Double.parseDouble(strInputB);
+            bundle.putDouble("inputA", numberA);
+            bundle.putDouble("inputB", numberB);
             intent.putExtra("inputData", bundle);
             startService(intent);
         } else

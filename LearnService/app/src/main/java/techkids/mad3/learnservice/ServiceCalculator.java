@@ -19,8 +19,8 @@ public class ServiceCalculator extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Bundle bundleGetData = intent.getBundleExtra("inputData");
-        int inputA = bundleGetData.getInt("inputA");
-        int inputB = bundleGetData.getInt("inputB");
+        double inputA = bundleGetData.getDouble("inputA");
+        double inputB = bundleGetData.getDouble("inputB");
         String character = bundleGetData.getString("character");
 
         Log.d("So a", String.valueOf(inputA));
@@ -45,7 +45,7 @@ public class ServiceCalculator extends IntentService {
                 bundle.putString("character", "*");
                 break;
             case "/":
-                bundle.putDouble("division", Math.floor(inputA / inputB));
+                bundle.putDouble("division", inputA / inputB);
                 bundle.putString("character", "/");
                 break;
         }

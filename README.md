@@ -48,4 +48,5 @@ public class ServiceCalculator extends IntentService {
 ##Tham khảo
 + [Use Toast in Android](http://www.mkyong.com/android/android-toast-example/)
 + [Tham khảo kiểu dữ liệu khi chia 2 số: nếu là kiểu int thì khi chia 2 số kiểu int sẽ cho kết quả kiểu int và: ví dụ: 3/2 = 1 ; muốn 3/2 =1.5 thì ta đổi kiểu dữ liệu](http://alvinalexander.com/java/java-int-double-float-mixed-type-division-arithmetic-rules)
++ [Hướng dẫn lập trình Android Service](http://o7planning.org/web/fe/default/vi/document/1162405/huong-dan-lap-trinh-android-service)
 
